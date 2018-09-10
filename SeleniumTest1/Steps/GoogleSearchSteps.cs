@@ -45,7 +45,11 @@ namespace WebdriverBdd
         [Then(@"Print the fifth link text")]
         public void ThenPrintTheFifthLinkText()
         {
-            string linkText = googleHomePageAction.GetLinkTextForIndex(5);
+            string linkText = "The number of links returned is less than 5.";
+            if(googleHomePageAction.GetNumberOfLinks() > 5)
+            {
+                linkText = googleHomePageAction.GetLinkTextForIndex(5);
+            }
             Console.WriteLine("The fifth link text in Google search page is : " + linkText);
         }
 
